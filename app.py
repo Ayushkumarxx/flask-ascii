@@ -28,7 +28,7 @@ def home():
         oneCharHeight = 16
 
         im = Image.open(image_file)
-        fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
+        fnt = ImageFont.truetype(os.path.join(os.path.dirname(__file__), 'lucon.ttf', 15))
         width, height = im.size
         im = im.resize((int(scaleFactor*width), int(scaleFactor*height*(oneCharWidth/oneCharHeight))), Image.Resampling.NEAREST)
         width, height = im.size
