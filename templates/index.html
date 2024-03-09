@@ -130,8 +130,8 @@
     {% if output_image %}
     <div class="image-box">
         <h2>Output Image</h2>
-        <img src="{{ output_image }}" alt="Output Image">
-        <a href="{{ output_image }}" download="output_image.png">
+        <img src="{{ url_for('static', filename=output_image) }}" alt="Output Image">
+        <a href="{{ url_for('static', filename=output_image) }}" download="output_image.png">
             <button>Download Image</button>
         </a>
     </div>
