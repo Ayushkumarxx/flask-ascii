@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image to ASCII Art</title>
+    <style>
+        :root {
+            --primary-color: #2ecc71; /* Green */
+            --secondary-color: #3498db; /* Blue */
+            --text-color: #34495e; /* Dark Blue */
+            --hover-color: #1abc9c; /* Light Green */
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ecf0f1; /* Light Gray */
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header p{
+           font-style: italic;
+        }
+
+        form {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        input[type="file"],
+        textarea {
+            display: block;
+            
+            padding: 10px;
+            width: calc(100% - 10px);
+            border-radius: 8px;
+            font-size: 16px;
+            border: 1px solid var(--secondary-color);
+            box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+        }
+        input[type="file"]{
+          margin: 30px 0 10px;
+        }
+        textarea{
+          margin-bottom: 20px;
+        }
+        button[type="submit"] {
+            padding: 15px 25px;
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: var(--hover-color);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        
+
+            width: 100%;
+        }
+        .image-box{
+            max-width: 850px;
+            padding: 10px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 100px;
+
+        }
+        .image-box h2{
+            margin-bottom: 20px;
+        }
+        .image-box img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .image-box a button{
+            padding: 15px 25px;
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+            box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Image to ASCII Art</h1>
+        <p>By ayush</p>
+    </header>
+
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required><br>
+        <textarea name="text" placeholder="Enter text" required></textarea><br>
+        <button type="submit">Generate ASCII Art</button>
+    </form>
+
+    {% if output_image %}
+    <div class="image-box">
+        <h2>Output Image</h2>
+        <img src="{{ output_image }}" alt="Output Image">
+        <a href="{{ output_image }}" download="output_image.png">
+            <button>Download Image</button>
+        </a>
+    </div>
+   
+    {% endif %}
+
+   
+</body>
+</html>
