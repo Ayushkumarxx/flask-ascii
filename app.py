@@ -34,7 +34,8 @@ def home():
         im = im.resize((int(scaleFactor*width), int(scaleFactor*height*(oneCharWidth/oneCharHeight))), Image.Resampling.NEAREST)
         width, height = im.size
         pix = im.load()
-        output_img_path = os.path.join('static', 'output.png')
+        static_folder_path = os.path.join(os.path.dirname(__file__), 'static')
+        output_img_path = os.path.join(static_folder_path, 'output.png')
         
         # Delete the existing output image if it exists
         if os.path.exists(output_img_path):
