@@ -29,7 +29,7 @@ def home():
 
         im = Image.open(image_file)
         
-        fnt = ImageFont.truetype('static/font.ttf', 15) 
+        fnt = ImageFont.load_default()
         width, height = im.size
         im = im.resize((int(scaleFactor*width), int(scaleFactor*height*(oneCharWidth/oneCharHeight))), Image.Resampling.NEAREST)
         width, height = im.size
