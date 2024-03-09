@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, send_file
 from PIL import Image, ImageDraw, ImageFont
 import math
 import os
-app = Flask(__name__)
+app = Flask(__name__,  static_folder='static')
 
 # Function to cycle through characters of a string
 repeatedCharIndex = 0
