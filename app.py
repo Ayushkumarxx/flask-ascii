@@ -41,6 +41,9 @@ def home():
         if os.path.exists(output_img_path):
             os.remove(output_img_path)
 
+        if not os.path.exists(static_folder_path):
+           os.makedirs(static_folder_path)
+
         
         outputImg2 = Image.new("RGB", (oneCharWidth * width, oneCharHeight * height) , color=(0,0,0))
         d2 = ImageDraw.Draw(outputImg2)
